@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>Eduweb.pl - Bootcamp</title>
+	<meta name="description" content="Site contain every exercise done on bootcamp">
+	<meta name="author" content="Mateusz Chmielarz">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.bg { background: #ffc2c2; font-weight: bold; border: 2px solid #ff9595; } body section { max-width: 600px; margin: 20px auto; } body h2 { background: #d4d4d4; border: 2px solid #9d9d9d; padding: 5px; padding-left: 20px; } body > h2 { text-align: center; font-size: 50px; margin: 0; padding: 0; background: none; border: 0; } body .answer { border-top: 2px solid #9d9d9d; padding-top: 20px; } body .answer .zadanie4 { border: 2px solid #ff9595; } body .answer > a { display: block; width: 250px; text-align: center; margin-right: 10%; margin-left: auto; color: #9d9d9d; font-weight: bold; font-size: 20px; } body ol li { margin: 10px auto; } body #side-menu { width: 150px; position: fixed; top: calc(50% - 100px); left: -150px; background: #000; color: white; border-radius: 0 0 5px 0; } body #side-menu ul { list-style: none; padding: 0; text-align: center; } body #side-menu ul a { display: block; padding: 5px 0; color: white; text-decoration: none; font-size: 20px; width: 100%; } body #side-menu ul a:hover { background: grey; } body #btn { position: fixed; top: calc(50% - 100px); left: 0; height: 50px; width: 50px; background: #000; color: white; border: 0; border-left: 2px solid grey; border-radius: 0 5px 0 0; outline: none; } body #btn1 { position: fixed; top: calc(50% - 50px); left: 0; height: 50px; width: 50px; background: white; color: black; border: 2px solid black; border-left: 0; border-top: 0; border-radius: 0 0 5px 0; outline: none; }
+	</style>
+</head>
+<body>
+	<section id="zad4">
+		<div class="headline">
+			<h2>Zadanie nr 4</h2>
+			<h3>Prywatność za pomocą domknięcia</h3>
+			<p>Dokończ pisanie przygotowanego pod adresem http://pastebin.com/aNKyCt3N kodu tak, aby nie generował błędów. Stwórz metody get oraz set nie korzystając z prototypów. Istotą działania funkcji createData jest zwrócenie obiektu, który zawierał będzie metody get oraz set. Metoda get powinna przyjmować klucz, np. “name” oraz zwracać wartość np. data[“name”], natomiast metoda set powinna przyjmować klucz i wartość, sprawdzać czy oba te parametry zostały podane, a następnie powinna ustawiać np. data[“name”] = “Janek”.</p>
+		</div>
+		<div class="answer">
+			<a href="https://github.com/chmielinho/eduweb_w2-e4">Rozwiązanie na github.com</a>
+		</div>
+	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	<script>
+			function createData(obj, get, set) {
+				var data = {};
+				
+				return {
+					get: function(k) {
+						return data[k] || null;
+					},
+					set: function(k, v) {
+						return data[k] = v;
+					}
+				}
+			}
+
+			var data = createData();
+			data.set("name", "Janek");
+			console.log( data.get("name") );
+	</script>
+</body>
+</html>
